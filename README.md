@@ -1,73 +1,101 @@
-# React + TypeScript + Vite
+# 🚀 InboxAI - Asisten Cerdas UMKM Indonesia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Firebase](https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
+[![Gemini AI](https://img.shields.io/badge/Gemini_AI-4285F4?style=for-the-badge&logo=google-gemini&logoColor=white)](https://ai.google.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-Currently, two official plugins are available:
+**InboxAI** adalah platform asisten bisnis cerdas yang dirancang khusus untuk membantu UMKM (Usaha Mikro, Kecil, dan Menengah) di Indonesia naik kelas melalui kekuatan AI. Dengan InboxAI, pemilik toko dapat mengotomatisasi layanan pelanggan, menganalisis performa bisnis, dan mengelola pesanan dengan desain antarmuka yang premium dan sangat responsif.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Fitur Unggulan
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **🤖 AI Auto-Reply & Insight**: Menggunakan Google Gemini AI untuk membalas pesan pelanggan secara otomatis dan cerdas, serta memberikan analisis stok dan performa bisnis secara proaktif.
+*   **📊 Dashboard Real-time**: Visualisasi data penjualan, omset, dan konversi pembeli secara instan menggunakan Firebase Firestore.
+*   **💬 Sinkronisasi Chat Instan**: Sistem percakapan yang sangat responsif antara pelanggan dan admin dengan dukungan metadata denormalisasi untuk performa tinggi.
+*   **📱 Responsivitas Modern**: Desain premium yang adaptif untuk perangkat mobile standar, mode "Desktop Site" di mobile, hingga monitor desktop lebar.
+*   **🛒 Katalog Produk Terintegrasi**: Manajemen produk yang mudah dengan kemampuan generate deskripsi otomatis menggunakan AI.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Teknologi yang Digunakan
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+*   **Frontend**: React 18, TypeScript, Vite.
+*   **Styling**: Tailwind CSS dengan efek *Glassmorphism* dan *Iridescence*.
+*   **Backend & Database**: Firebase Firestore (Real-time DB) & Firebase Auth.
+*   **AI Engine**: Google Generative AI (Gemini 2.5 Flash).
+*   **Icons**: Lucide React.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Memulai Penginstalan
+
+### 1. Clone Repositori
+```bash
+git clone https://github.com/PamanSam01/umkm-assistant.git
+cd umkm-assistant
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 2. Instal Dependensi
+```bash
+npm install
 ```
+
+### 3. Konfigurasi Environment Variables
+Buat file `.env.local` di root direktori dan masukkan kredensial berikut:
+```env
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+
+# Google Gemini API Key (Bisa lebih dari satu, pisahkan dengan koma)
+VITE_GEMINI_API_KEY=your_gemini_api_key
+VITE_DEMO_MODE=false
+```
+
+### 4. Jalankan Aplikasi
+```bash
+npm run dev
+```
+
+---
+
+## 📁 Struktur Folder
+
+```text
+src/
+├── components/     # Komponen UI Reusable (Logo, AI Chat, Background)
+├── context/        # State Management (Auth & App Context)
+├── layouts/        # Layout Utama (MainLayout)
+├── lib/            # Inisialisasi Library (Firebase)
+├── pages/          # Halaman Aplikasi (Dashboard, Chat, Login, dll)
+└── services/       # Integrasi API & Logika AI (api.ts)
+```
+
+---
+
+## 🤝 Kontribusi
+
+Kontribusi selalu terbuka! Jika Anda memiliki saran untuk meningkatkan InboxAI, silakan:
+1. Fork proyek ini.
+2. Buat branch fitur baru (`git checkout -b fitur/Hebat`).
+3. Commit perubahan Anda (`git commit -m 'Menambahkan fitur Hebat'`).
+4. Push ke branch tersebut (`git push origin fitur/Hebat`).
+5. Buat Pull Request.
+
+---
+
+## 📜 Lisensi
+
+Didistribusikan di bawah Lisensi MIT. Lihat `LICENSE` untuk informasi lebih lanjut.
+
+---
+
+<p align="center">
+  Dibuat dengan ❤️ untuk UMKM Indonesia 🇮🇩
+</p>
