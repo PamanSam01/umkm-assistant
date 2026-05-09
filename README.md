@@ -65,6 +65,29 @@ npm run dev
 
 ---
 
+## ☁️ Deployment ke Google Cloud Run
+
+Proyek ini telah dikonfigurasi untuk dijalankan di Google Cloud Run menggunakan Docker.
+
+### 1. Build & Push Image ke Artifact Registry
+Ganti `[PROJECT_ID]` dan `[REPO_NAME]` dengan ID proyek Google Cloud Anda.
+```bash
+gcloud builds submit --tag gcr.io/[PROJECT_ID]/[REPO_NAME] .
+```
+
+### 2. Deploy ke Cloud Run
+Jalankan perintah berikut untuk meluncurkan layanan:
+```bash
+gcloud run deploy umkm-assistant \
+  --image gcr.io/[PROJECT_ID]/[REPO_NAME] \
+  --platform managed \
+  --region asia-southeast2 \
+  --allow-unauthenticated \
+  --port 8080
+```
+
+---
+
 ## 📁 Struktur Folder
 
 ```text

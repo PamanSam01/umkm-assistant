@@ -1,0 +1,14 @@
+node_modules
+dist
+.env
+.env.local
+.env.*
+.git
+.gitignore
+README.md
+Dockerfile
+.dockerignore
+.gemini
+antigravity
+firebase-debug.log
+.firebase
