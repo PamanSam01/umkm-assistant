@@ -1,14 +1,12 @@
-# Step 1: Build the application
-FROM node:20-alpine AS build
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-
-# Step 2: Serve the application with Nginx
+# Use a tiny Nginx image to serve the app
 FROM nginx:stable-alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+
+# Copy the pre-built dist folder from your local machine to the container
+COPY dist /usr/share/nginx/html
+
+# Copy your custom nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 8080
+
 CMD ["nginx", "-g", "daemon off;"]
