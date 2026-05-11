@@ -1,21 +1,9 @@
-# .gcloudignore
-# Mengabaikan file git agar tidak boros bandwidth
 .git/
 .gitignore
-
-# Mengabaikan folder development yang berat
 node_modules/
-src/
-
-# WAJIB IZINKAN FOLDER INI (Jangan masukkan dist/ di sini)
-# Karena Dockerfile kita butuh folder dist/ untuk dicopy ke Nginx
-
-# File lingkungan (Keamanan)
 .env
 .env.local
 .env.*
 env.yaml
-
-# File sampah sistem
 .DS_Store
 Thumbs.db
